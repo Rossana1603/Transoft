@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+  <typeAliases>
+
+    <typeAlias alias="IPromocionLogic" type="UPC.TS.BusinessContract.IPromocionLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="PromocionLogic" type="UPC.TS.BusinessLogic.PromocionLogic, UPC.TS.BusinessLogic" />
+    
+    <typeAlias alias="IContactenosLogic" type="UPC.TS.BusinessContract.IContactenosLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ContactenosLogic" type="UPC.TS.BusinessLogic.ContactenosLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="ITarifasLogic" type="UPC.TS.BusinessContract.ITarifasLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="TarifasLogic" type="UPC.TS.BusinessLogic.TarifasLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IConsultaProgramacionLogic" type="UPC.TS.BusinessContract.IConsultaProgramacionLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ConsultaProgramacionLogic" type="UPC.TS.BusinessLogic.ConsultaProgramacionLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IConsultaPersonalLogic" type="UPC.TS.BusinessContract.IConsultaPersonalLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ConsultaPersonalLogic" type="UPC.TS.BusinessLogic.ConsultaPersonalLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IUsuarioLogic" type="UPC.TS.BusinessContract.IUsuarioLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="UsuarioLogic" type="UPC.TS.BusinessLogic.UsuarioLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IPasajeroLogic" type="UPC.TS.BusinessContract.IPasajeroLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="PasajeroLogic" type="UPC.TS.BusinessLogic.PasajeroLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IReservaLogic" type="UPC.TS.BusinessContract.IReservaLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ReservaLogic" type="UPC.TS.BusinessLogic.ReservaLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IClienteLogic" type="UPC.TS.BusinessContract.IClienteLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ClienteLogic" type="UPC.TS.BusinessLogic.ClienteLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IPersonalLogic" type="UPC.TS.BusinessContract.IPersonalLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="PersonalLogic" type="UPC.TS.BusinessLogic.PersonalLogic, UPC.TS.BusinessLogic" />
+    
+    <typeAlias alias="ITipoTarjetaLogic" type="UPC.TS.BusinessContract.ITipoTarjetaLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="TipoTarjetaLogic" type="UPC.TS.BusinessLogic.TipoTarjetaLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="ICompraLogic" type="UPC.TS.BusinessContract.ICompraLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="CompraLogic" type="UPC.TS.BusinessLogic.CompraLogic, UPC.TS.BusinessLogic" />
+    
+    <typeAlias alias="IConsultaAsientosORILogic" type="UPC.TS.BusinessContract.IConsultaAsientosORILogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ConsultaAsientosORILogic" type="UPC.TS.BusinessLogic.ConsultaAsientosORILogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IConsultaAsientosDESLogic" type="UPC.TS.BusinessContract.IConsultaAsientosDESLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ConsultaAsientosDESLogic" type="UPC.TS.BusinessLogic.ConsultaAsientosDESLogic, UPC.TS.BusinessLogic" />
+
+    <typeAlias alias="IConsultaReservaLogic" type="UPC.TS.BusinessContract.IConsultaReservaLogic, UPC.TS.BusinessContract"/>
+    <typeAlias alias="ConsultaReservaLogic" type="UPC.TS.BusinessLogic.ConsultaReservaLogic, UPC.TS.BusinessLogic" />
+    
+    
+  </typeAliases>
+
+  <container name="Servicio">
+    <register type="IPromocionLogic" mapTo="PromocionLogic" />
+    <register type="IContactenosLogic" mapTo="ContactenosLogic" />
+    <register type="ITarifasLogic" mapTo="TarifasLogic" />
+    <register type="IConsultaProgramacionLogic" mapTo="ConsultaProgramacionLogic" />
+    <register type="IConsultaPersonalLogic" mapTo="ConsultaPersonalLogic" />
+    <register type="IUsuarioLogic" mapTo="UsuarioLogic" />
+    <register type="IPasajeroLogic" mapTo="PasajeroLogic" />
+    <register type="IReservaLogic" mapTo="ReservaLogic" />
+    <register type="IClienteLogic" mapTo="ClienteLogic" />
+    <register type="IPersonalLogic" mapTo="PersonalLogic" />
+    <register type="ITipoTarjetaLogic" mapTo="TipoTarjetaLogic" />
+    <register type="ICompraLogic" mapTo="CompraLogic" />
+    <register type="IConsultaAsientosORILogic" mapTo="ConsultaAsientosORILogic" />
+    <register type="IConsultaAsientosDESLogic" mapTo="ConsultaAsientosDESLogic" />
+    <register type="IConsultaReservaLogic" mapTo="ConsultaReservaLogic" />
+  </container>
+</unity>

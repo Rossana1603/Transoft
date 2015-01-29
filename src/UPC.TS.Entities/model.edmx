@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UPCEntitiesBD.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="contactenos">
+          <Key>
+            <PropertyRef Name="idcon" />
+          </Key>
+          <Property Name="idcon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomcompcon" Type="varchar" MaxLength="50" />
+          <Property Name="dnicon" Type="char" MaxLength="8" />
+          <Property Name="corcon" Type="varchar" MaxLength="50" />
+          <Property Name="telcon" Type="char" MaxLength="7" />
+          <Property Name="celcon" Type="char" MaxLength="9" />
+          <Property Name="empcon" Type="varchar" MaxLength="50" />
+          <Property Name="comcon" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="SRV_BUS">
+          <Key>
+            <PropertyRef Name="CODBUS" />
+          </Key>
+          <Property Name="CODBUS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLABUS" Type="varchar" MaxLength="50" />
+          <Property Name="ANIOBUS" Type="char" MaxLength="4" />
+          <Property Name="NROEJE" Type="int" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="CODTIPSER" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_CLIENTE">
+          <Key>
+            <PropertyRef Name="CODCLI" />
+          </Key>
+          <Property Name="CODCLI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODUSU" Type="int" />
+          <Property Name="CORCLI" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SRV_COMPRA">
+          <Key>
+            <PropertyRef Name="CODCOM" />
+          </Key>
+          <Property Name="CODCOM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODCON" Type="varchar" MaxLength="10" />
+          <Property Name="FECCOM" Type="datetime" />
+          <Property Name="SUBTOT" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="VALIGV" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="MONTOT" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="CODRES" Type="int" />
+          <Property Name="CODTARJETA" Type="int" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_CUPONES">
+          <Key>
+            <PropertyRef Name="CODCUP" />
+          </Key>
+          <Property Name="CODCUP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PORDESC" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="FECVIG" Type="datetime" />
+          <Property Name="CODCLI" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_PASAJERO">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+          </Key>
+          <Property Name="CODPAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMPAS" Type="varchar" MaxLength="50" />
+          <Property Name="APEPPAS" Type="varchar" MaxLength="50" />
+          <Property Name="APEMPAS" Type="varchar" MaxLength="50" />
+          <Property Name="DIRPAS" Type="varchar" MaxLength="150" />
+          <Property Name="SEXPAS" Type="char" MaxLength="1" />
+          <Property Name="CELPAS" Type="varchar" MaxLength="10" />
+          <Property Name="TELPAS" Type="varchar" MaxLength="10" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="ESTTRAN" Type="char" MaxLength="1" />
+          <Property Name="CODRES" Type="int" />
+          <Property Name="TIPDOC" Type="char" MaxLength="1" />
+          <Property Name="NUMDOC" Type="varchar" MaxLength="20" />
+          <Property Name="NUMASI" Type="varchar" MaxLength="20" />
+          <Property Name="TIPVIA" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_PERFIL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+          </Key>
+          <Property Name="CODPER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMPER" Type="varchar" MaxLength="50" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_PERSONAL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+          </Key>
+          <Property Name="CODPER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMPER" Type="varchar" MaxLength="50" />
+          <Property Name="APEPER" Type="varchar" MaxLength="50" />
+          <Property Name="DNIPER" Type="char" MaxLength="8" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="CODUSU" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_PROGRAMACION">
+          <Key>
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECSALPRO" Type="datetime" />
+          <Property Name="HORSALPRO" Type="varchar" MaxLength="50" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="CODBUS" Type="int" />
+          <Property Name="CODTAR" Type="int" />
+          <Property Name="CODPROM" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_PROMOCION">
+          <Key>
+            <PropertyRef Name="CODPROM" />
+          </Key>
+          <Property Name="CODPROM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PORDESC" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="FECINI" Type="datetime" />
+          <Property Name="FECFIN" Type="datetime" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="DESPROM" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SRV_RESERVA">
+          <Key>
+            <PropertyRef Name="CODRES" />
+          </Key>
+          <Property Name="CODRES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECRES" Type="datetime" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="ESTTRAN" Type="char" MaxLength="1" />
+          <Property Name="CODCLI" Type="int" />
+          <Property Name="CODPRO" Type="int" />
+          <Property Name="CODPRODES" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_TARIFA">
+          <Key>
+            <PropertyRef Name="CODTAR" />
+          </Key>
+          <Property Name="CODTAR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORITAR" Type="varchar" MaxLength="50" />
+          <Property Name="DESTAR" Type="varchar" MaxLength="50" />
+          <Property Name="PRETAR" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="CODTIPSER" Type="int" />
+          <Property Name="CODESTTAR" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_TARJETA">
+          <Key>
+            <PropertyRef Name="CODTARJETA" />
+          </Key>
+          <Property Name="CODTARJETA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NUMTAR" Type="varchar" MaxLength="50" />
+          <Property Name="CODVER" Type="varchar" MaxLength="10" />
+          <Property Name="NOMTIT" Type="varchar" MaxLength="10" />
+          <Property Name="APETIT" Type="varchar" MaxLength="10" />
+          <Property Name="FECEXP" Type="varchar" MaxLength="10" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="CODTIPTAR" Type="int" />
+        </EntityType>
+        <EntityType Name="SRV_TIPO_SERVICIO">
+          <Key>
+            <PropertyRef Name="CODTIPSER" />
+          </Key>
+          <Property Name="CODTIPSER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMTIPSER" Type="varchar" MaxLength="50" />
+          <Property Name="DESTIPSER" Type="varchar" MaxLength="200" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_TIPO_TARJETA">
+          <Key>
+            <PropertyRef Name="CODTIPTAR" />
+          </Key>
+          <Property Name="CODTIPTAR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMTIPTAR" Type="varchar" MaxLength="50" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="MEDPAG" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SRV_USUARIO">
+          <Key>
+            <PropertyRef Name="CODUSU" />
+          </Key>
+          <Property Name="CODUSU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLAUSU" Type="varchar" MaxLength="500" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
+          <Property Name="LOGUSU" Type="varchar" MaxLength="50" />
+          <Property Name="CODPER" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSDES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSDES">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPAS" Type="int" Nullable="false" />
+          <Property Name="CODPRO" Type="int" Nullable="false" />
+          <Property Name="NUMASI" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSORI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSORI">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPAS" Type="int" Nullable="false" />
+          <Property Name="CODPRO" Type="int" Nullable="false" />
+          <Property Name="NUMASI" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PERSONAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SRV_VW_CONSULTA_PERSONAL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+            <PropertyRef Name="CODUSU" />
+          </Key>
+          <Property Name="CODPER" Type="int" Nullable="false" />
+          <Property Name="CODUSU" Type="int" Nullable="false" />
+          <Property Name="DNIPER" Type="char" MaxLength="8" />
+          <Property Name="NOMPER" Type="varchar" MaxLength="50" />
+          <Property Name="APEPER" Type="varchar" MaxLength="50" />
+          <Property Name="LOGUSU" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PROGRAMACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SRV_VW_CONSULTA_PROGRAMACION">
+          <Key>
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPRO" Type="int" Nullable="false" />
+          <Property Name="FECSALPRO" Type="varchar" MaxLength="11" />
+          <Property Name="HORSALPRO" Type="varchar" MaxLength="50" />
+          <Property Name="ORITAR" Type="varchar" MaxLength="50" />
+          <Property Name="DESTAR" Type="varchar" MaxLength="50" />
+          <Property Name="PRETAR" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="NOMTIPSER" Type="varchar" MaxLength="50" />
+          <Property Name="CUPASI" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SRV_VW_RESERVAS">
+          <Key>
+            <PropertyRef Name="CODRES" />
+            <PropertyRef Name="TIPVIA" />
+          </Key>
+          <Property Name="CODRES" Type="int" Nullable="false" />
+          <Property Name="FECRES" Type="varchar" MaxLength="11" />
+          <Property Name="FECSALPRO" Type="varchar" MaxLength="11" />
+          <Property Name="HORSALPRO" Type="varchar" MaxLength="50" />
+          <Property Name="ORITAR" Type="varchar" MaxLength="50" />
+          <Property Name="DESTAR" Type="varchar" MaxLength="50" />
+          <Property Name="TIPVIA" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="CORCLI" Type="varchar" MaxLength="50" />
+          <Property Name="ESTTRAN" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="R_12">
+          <End Role="SRV_RESERVA" Type="Self.SRV_RESERVA" Multiplicity="0..1" />
+          <End Role="SRV_COMPRA" Type="Self.SRV_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_RESERVA">
+              <PropertyRef Name="CODRES" />
+            </Principal>
+            <Dependent Role="SRV_COMPRA">
+              <PropertyRef Name="CODRES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_16">
+          <End Role="SRV_TIPO_TARJETA" Type="Self.SRV_TIPO_TARJETA" Multiplicity="0..1" />
+          <End Role="SRV_TARJETA" Type="Self.SRV_TARJETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_TIPO_TARJETA">
+              <PropertyRef Name="CODTIPTAR" />
+            </Principal>
+            <Dependent Role="SRV_TARJETA">
+              <PropertyRef Name="CODTIPTAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_18">
+          <End Role="SRV_TARJETA" Type="Self.SRV_TARJETA" Multiplicity="0..1" />
+          <End Role="SRV_COMPRA" Type="Self.SRV_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_TARJETA">
+              <PropertyRef Name="CODTARJETA" />
+            </Principal>
+            <Dependent Role="SRV_COMPRA">
+              <PropertyRef Name="CODTARJETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UPCEntitiesBDStoreContainer">
+          <EntitySet Name="contactenos" EntityType="Self.contactenos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_BUS" EntityType="Self.SRV_BUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_CLIENTE" EntityType="Self.SRV_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_COMPRA" EntityType="Self.SRV_COMPRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_CUPONES" EntityType="Self.SRV_CUPONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_PASAJERO" EntityType="Self.SRV_PASAJERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_PERFIL" EntityType="Self.SRV_PERFIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_PERSONAL" EntityType="Self.SRV_PERSONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_PROGRAMACION" EntityType="Self.SRV_PROGRAMACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_PROMOCION" EntityType="Self.SRV_PROMOCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_RESERVA" EntityType="Self.SRV_RESERVA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_TARIFA" EntityType="Self.SRV_TARIFA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_TARJETA" EntityType="Self.SRV_TARJETA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_TIPO_SERVICIO" EntityType="Self.SRV_TIPO_SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_TIPO_TARJETA" EntityType="Self.SRV_TIPO_TARJETA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_USUARIO" EntityType="Self.SRV_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SRV_VW_ASIENTOS_RESERVADOSDES" EntityType="Self.SRV_VW_ASIENTOS_RESERVADOSDES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SRV_VW_ASIENTOS_RESERVADOSDES].[CODPAS] AS [CODPAS], 
+    [SRV_VW_ASIENTOS_RESERVADOSDES].[CODPRO] AS [CODPRO], 
+    [SRV_VW_ASIENTOS_RESERVADOSDES].[NUMASI] AS [NUMASI]
+    FROM [dbo].[SRV_VW_ASIENTOS_RESERVADOSDES] AS [SRV_VW_ASIENTOS_RESERVADOSDES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SRV_VW_ASIENTOS_RESERVADOSORI" EntityType="Self.SRV_VW_ASIENTOS_RESERVADOSORI" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SRV_VW_ASIENTOS_RESERVADOSORI].[CODPAS] AS [CODPAS], 
+    [SRV_VW_ASIENTOS_RESERVADOSORI].[CODPRO] AS [CODPRO], 
+    [SRV_VW_ASIENTOS_RESERVADOSORI].[NUMASI] AS [NUMASI]
+    FROM [dbo].[SRV_VW_ASIENTOS_RESERVADOSORI] AS [SRV_VW_ASIENTOS_RESERVADOSORI]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SRV_VW_CONSULTA_PERSONAL" EntityType="Self.SRV_VW_CONSULTA_PERSONAL" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SRV_VW_CONSULTA_PERSONAL].[CODPER] AS [CODPER], 
+    [SRV_VW_CONSULTA_PERSONAL].[CODUSU] AS [CODUSU], 
+    [SRV_VW_CONSULTA_PERSONAL].[DNIPER] AS [DNIPER], 
+    [SRV_VW_CONSULTA_PERSONAL].[NOMPER] AS [NOMPER], 
+    [SRV_VW_CONSULTA_PERSONAL].[APEPER] AS [APEPER], 
+    [SRV_VW_CONSULTA_PERSONAL].[LOGUSU] AS [LOGUSU]
+    FROM [dbo].[SRV_VW_CONSULTA_PERSONAL] AS [SRV_VW_CONSULTA_PERSONAL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SRV_VW_CONSULTA_PROGRAMACION" EntityType="Self.SRV_VW_CONSULTA_PROGRAMACION" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SRV_VW_CONSULTA_PROGRAMACION].[CODPRO] AS [CODPRO], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[FECSALPRO] AS [FECSALPRO], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[HORSALPRO] AS [HORSALPRO], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[ORITAR] AS [ORITAR], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[DESTAR] AS [DESTAR], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[PRETAR] AS [PRETAR], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[NOMTIPSER] AS [NOMTIPSER], 
+    [SRV_VW_CONSULTA_PROGRAMACION].[CUPASI] AS [CUPASI]
+    FROM [dbo].[SRV_VW_CONSULTA_PROGRAMACION] AS [SRV_VW_CONSULTA_PROGRAMACION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SRV_VW_RESERVAS" EntityType="Self.SRV_VW_RESERVAS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SRV_VW_RESERVAS].[CODRES] AS [CODRES], 
+    [SRV_VW_RESERVAS].[FECRES] AS [FECRES], 
+    [SRV_VW_RESERVAS].[FECSALPRO] AS [FECSALPRO], 
+    [SRV_VW_RESERVAS].[HORSALPRO] AS [HORSALPRO], 
+    [SRV_VW_RESERVAS].[ORITAR] AS [ORITAR], 
+    [SRV_VW_RESERVAS].[DESTAR] AS [DESTAR], 
+    [SRV_VW_RESERVAS].[TIPVIA] AS [TIPVIA], 
+    [SRV_VW_RESERVAS].[CORCLI] AS [CORCLI], 
+    [SRV_VW_RESERVAS].[ESTTRAN] AS [ESTTRAN]
+    FROM [dbo].[SRV_VW_RESERVAS] AS [SRV_VW_RESERVAS]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="R_12" Association="Self.R_12">
+            <End Role="SRV_RESERVA" EntitySet="SRV_RESERVA" />
+            <End Role="SRV_COMPRA" EntitySet="SRV_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="R_16" Association="Self.R_16">
+            <End Role="SRV_TIPO_TARJETA" EntitySet="SRV_TIPO_TARJETA" />
+            <End Role="SRV_TARJETA" EntitySet="SRV_TARJETA" />
+          </AssociationSet>
+          <AssociationSet Name="R_18" Association="Self.R_18">
+            <End Role="SRV_TARJETA" EntitySet="SRV_TARJETA" />
+            <End Role="SRV_COMPRA" EntitySet="SRV_COMPRA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UPCEntitiesBD" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UPCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contactenos" EntityType="UPCEntitiesBD.contactenos" />
+          <EntitySet Name="sysdiagrams" EntityType="UPCEntitiesBD.sysdiagrams" />
+          <EntitySet Name="SRV_BUS" EntityType="UPCEntitiesBD.SRV_BUS" />
+          <EntitySet Name="SRV_CLIENTE" EntityType="UPCEntitiesBD.SRV_CLIENTE" />
+          <EntitySet Name="SRV_CUPONES" EntityType="UPCEntitiesBD.SRV_CUPONES" />
+          <EntitySet Name="SRV_PASAJERO" EntityType="UPCEntitiesBD.SRV_PASAJERO" />
+          <EntitySet Name="SRV_PERFIL" EntityType="UPCEntitiesBD.SRV_PERFIL" />
+          <EntitySet Name="SRV_PERSONAL" EntityType="UPCEntitiesBD.SRV_PERSONAL" />
+          <EntitySet Name="SRV_PROGRAMACION" EntityType="UPCEntitiesBD.SRV_PROGRAMACION" />
+          <EntitySet Name="SRV_PROMOCION" EntityType="UPCEntitiesBD.SRV_PROMOCION" />
+          <EntitySet Name="SRV_RESERVA" EntityType="UPCEntitiesBD.SRV_RESERVA" />
+          <EntitySet Name="SRV_TIPO_SERVICIO" EntityType="UPCEntitiesBD.SRV_TIPO_SERVICIO" />
+          <EntitySet Name="SRV_USUARIO" EntityType="UPCEntitiesBD.SRV_USUARIO" />
+          <EntitySet Name="SRV_VW_ASIENTOS_RESERVADOSDES" EntityType="UPCEntitiesBD.SRV_VW_ASIENTOS_RESERVADOSDES" />
+          <EntitySet Name="SRV_VW_ASIENTOS_RESERVADOSORI" EntityType="UPCEntitiesBD.SRV_VW_ASIENTOS_RESERVADOSORI" />
+          <EntitySet Name="SRV_VW_CONSULTA_PROGRAMACION" EntityType="UPCEntitiesBD.SRV_VW_CONSULTA_PROGRAMACION" />
+          <EntitySet Name="SRV_VW_RESERVAS" EntityType="UPCEntitiesBD.SRV_VW_RESERVAS" />
+          <EntitySet Name="SRV_TARIFA" EntityType="UPCEntitiesBD.SRV_TARIFA" />
+          <EntitySet Name="SRV_VW_CONSULTA_PERSONAL" EntityType="UPCEntitiesBD.SRV_VW_CONSULTA_PERSONAL" />
+          <EntitySet Name="SRV_TIPO_TARJETA" EntityType="UPCEntitiesBD.SRV_TIPO_TARJETA" />
+          <EntitySet Name="SRV_TARJETA" EntityType="UPCEntitiesBD.SRV_TARJETA" />
+          <AssociationSet Name="R_16" Association="UPCEntitiesBD.R_16">
+            <End Role="SRV_TIPO_TARJETA" EntitySet="SRV_TIPO_TARJETA" />
+            <End Role="SRV_TARJETA" EntitySet="SRV_TARJETA" />
+          </AssociationSet>
+          <EntitySet Name="SRV_COMPRA" EntityType="UPCEntitiesBD.SRV_COMPRA" />
+          <AssociationSet Name="R_12" Association="UPCEntitiesBD.R_12">
+            <End Role="SRV_RESERVA" EntitySet="SRV_RESERVA" />
+            <End Role="SRV_COMPRA" EntitySet="SRV_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="R_18" Association="UPCEntitiesBD.R_18">
+            <End Role="SRV_TARJETA" EntitySet="SRV_TARJETA" />
+            <End Role="SRV_COMPRA" EntitySet="SRV_COMPRA" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="contactenos">
+          <Key>
+            <PropertyRef Name="idcon" />
+          </Key>
+          <Property Name="idcon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomcompcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dnicon" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="corcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telcon" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="celcon" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="empcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comcon" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SRV_BUS">
+          <Key>
+            <PropertyRef Name="CODBUS" />
+          </Key>
+          <Property Name="CODBUS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLABUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ANIOBUS" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="NROEJE" Type="Int32" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODTIPSER" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_CLIENTE">
+          <Key>
+            <PropertyRef Name="CODCLI" />
+          </Key>
+          <Property Name="CODCLI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODUSU" Type="Int32" />
+          <Property Name="CORCLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_CUPONES">
+          <Key>
+            <PropertyRef Name="CODCUP" />
+          </Key>
+          <Property Name="CODCUP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PORDESC" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FECVIG" Type="DateTime" Precision="3" />
+          <Property Name="CODCLI" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_PASAJERO">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+          </Key>
+          <Property Name="CODPAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMPAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APEPPAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APEMPAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRPAS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SEXPAS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CELPAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TELPAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ESTTRAN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODRES" Type="Int32" />
+          <Property Name="TIPDOC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NUMDOC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NUMASI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TIPVIA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_PERFIL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+          </Key>
+          <Property Name="CODPER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMPER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_PERSONAL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+          </Key>
+          <Property Name="CODPER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMPER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APEPER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNIPER" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODUSU" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_PROGRAMACION">
+          <Key>
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECSALPRO" Type="DateTime" Precision="3" />
+          <Property Name="HORSALPRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODBUS" Type="Int32" />
+          <Property Name="CODTAR" Type="Int32" />
+          <Property Name="CODPROM" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_PROMOCION">
+          <Key>
+            <PropertyRef Name="CODPROM" />
+          </Key>
+          <Property Name="CODPROM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PORDESC" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="FECINI" Type="DateTime" Precision="3" />
+          <Property Name="FECFIN" Type="DateTime" Precision="3" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DESPROM" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_RESERVA">
+          <Key>
+            <PropertyRef Name="CODRES" />
+          </Key>
+          <Property Name="CODRES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECRES" Type="DateTime" Precision="3" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ESTTRAN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODCLI" Type="Int32" />
+          <Property Name="CODPRO" Type="Int32" />
+          <Property Name="CODPRODES" Type="Int32" />
+          <NavigationProperty Name="SRV_COMPRA" Relationship="UPCEntitiesBD.R_12" FromRole="SRV_RESERVA" ToRole="SRV_COMPRA" />
+        </EntityType>
+        <EntityType Name="SRV_TIPO_SERVICIO">
+          <Key>
+            <PropertyRef Name="CODTIPSER" />
+          </Key>
+          <Property Name="CODTIPSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMTIPSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESTIPSER" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_USUARIO">
+          <Key>
+            <PropertyRef Name="CODUSU" />
+          </Key>
+          <Property Name="CODUSU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLAUSU" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LOGUSU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODPER" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSDES">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPAS" Type="Int32" Nullable="false" />
+          <Property Name="CODPRO" Type="Int32" Nullable="false" />
+          <Property Name="NUMASI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSORI">
+          <Key>
+            <PropertyRef Name="CODPAS" />
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPAS" Type="Int32" Nullable="false" />
+          <Property Name="CODPRO" Type="Int32" Nullable="false" />
+          <Property Name="NUMASI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_VW_CONSULTA_PROGRAMACION">
+          <Key>
+            <PropertyRef Name="CODPRO" />
+          </Key>
+          <Property Name="CODPRO" Type="Int32" Nullable="false" />
+          <Property Name="FECSALPRO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="HORSALPRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORITAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESTAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRETAR" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="NOMTIPSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUPASI" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SRV_VW_RESERVAS">
+          <Key>
+            <PropertyRef Name="CODRES" />
+            <PropertyRef Name="TIPVIA" />
+          </Key>
+          <Property Name="CODRES" Type="Int32" Nullable="false" />
+          <Property Name="FECRES" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="FECSALPRO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="HORSALPRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORITAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESTAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIPVIA" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CORCLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTTRAN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_TARIFA">
+          <Key>
+            <PropertyRef Name="CODTAR" />
+          </Key>
+          <Property Name="CODTAR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORITAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESTAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRETAR" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODTIPSER" Type="Int32" />
+          <Property Name="CODESTTAR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_VW_CONSULTA_PERSONAL">
+          <Key>
+            <PropertyRef Name="CODPER" />
+            <PropertyRef Name="CODUSU" />
+          </Key>
+          <Property Name="CODPER" Type="Int32" Nullable="false" />
+          <Property Name="CODUSU" Type="Int32" Nullable="false" />
+          <Property Name="DNIPER" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="NOMPER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APEPER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGUSU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SRV_TIPO_TARJETA">
+          <Key>
+            <PropertyRef Name="CODTIPTAR" />
+          </Key>
+          <Property Name="CODTIPTAR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMTIPTAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MEDPAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="SRV_TARJETA" Relationship="UPCEntitiesBD.R_16" FromRole="SRV_TIPO_TARJETA" ToRole="SRV_TARJETA" />
+        </EntityType>
+        <EntityType Name="SRV_TARJETA">
+          <Key>
+            <PropertyRef Name="CODTARJETA" />
+          </Key>
+          <Property Name="CODTARJETA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMTAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODVER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NOMTIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="APETIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FECEXP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CODTIPTAR" Type="Int32" />
+          <NavigationProperty Name="SRV_TIPO_TARJETA" Relationship="UPCEntitiesBD.R_16" FromRole="SRV_TARJETA" ToRole="SRV_TIPO_TARJETA" />
+          <NavigationProperty Name="SRV_COMPRA" Relationship="UPCEntitiesBD.R_18" FromRole="SRV_TARJETA" ToRole="SRV_COMPRA" />
+        </EntityType>
+        <Association Name="R_16">
+          <End Type="UPCEntitiesBD.SRV_TIPO_TARJETA" Role="SRV_TIPO_TARJETA" Multiplicity="0..1" />
+          <End Type="UPCEntitiesBD.SRV_TARJETA" Role="SRV_TARJETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_TIPO_TARJETA">
+              <PropertyRef Name="CODTIPTAR" />
+            </Principal>
+            <Dependent Role="SRV_TARJETA">
+              <PropertyRef Name="CODTIPTAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SRV_COMPRA">
+          <Key>
+            <PropertyRef Name="CODCOM" />
+          </Key>
+          <Property Name="CODCOM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODCON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FECCOM" Type="DateTime" Precision="3" />
+          <Property Name="SUBTOT" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="VALIGV" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="MONTOT" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="CODRES" Type="Int32" />
+          <Property Name="CODTARJETA" Type="Int32" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="SRV_RESERVA" Relationship="UPCEntitiesBD.R_12" FromRole="SRV_COMPRA" ToRole="SRV_RESERVA" />
+          <NavigationProperty Name="SRV_TARJETA" Relationship="UPCEntitiesBD.R_18" FromRole="SRV_COMPRA" ToRole="SRV_TARJETA" />
+        </EntityType>
+        <Association Name="R_12">
+          <End Type="UPCEntitiesBD.SRV_RESERVA" Role="SRV_RESERVA" Multiplicity="0..1" />
+          <End Type="UPCEntitiesBD.SRV_COMPRA" Role="SRV_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_RESERVA">
+              <PropertyRef Name="CODRES" />
+            </Principal>
+            <Dependent Role="SRV_COMPRA">
+              <PropertyRef Name="CODRES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_18">
+          <End Type="UPCEntitiesBD.SRV_TARJETA" Role="SRV_TARJETA" Multiplicity="0..1" />
+          <End Type="UPCEntitiesBD.SRV_COMPRA" Role="SRV_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRV_TARJETA">
+              <PropertyRef Name="CODTARJETA" />
+            </Principal>
+            <Dependent Role="SRV_COMPRA">
+              <PropertyRef Name="CODTARJETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UPCEntitiesBDStoreContainer" CdmEntityContainer="UPCEntities">
+          <EntitySetMapping Name="contactenos">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.contactenos">
+              <MappingFragment StoreEntitySet="contactenos">
+                <ScalarProperty Name="comcon" ColumnName="comcon" />
+                <ScalarProperty Name="empcon" ColumnName="empcon" />
+                <ScalarProperty Name="celcon" ColumnName="celcon" />
+                <ScalarProperty Name="telcon" ColumnName="telcon" />
+                <ScalarProperty Name="corcon" ColumnName="corcon" />
+                <ScalarProperty Name="dnicon" ColumnName="dnicon" />
+                <ScalarProperty Name="nomcompcon" ColumnName="nomcompcon" />
+                <ScalarProperty Name="idcon" ColumnName="idcon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_BUS">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_BUS">
+              <MappingFragment StoreEntitySet="SRV_BUS">
+                <ScalarProperty Name="CODTIPSER" ColumnName="CODTIPSER" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="NROEJE" ColumnName="NROEJE" />
+                <ScalarProperty Name="ANIOBUS" ColumnName="ANIOBUS" />
+                <ScalarProperty Name="PLABUS" ColumnName="PLABUS" />
+                <ScalarProperty Name="CODBUS" ColumnName="CODBUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_CLIENTE">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_CLIENTE">
+              <MappingFragment StoreEntitySet="SRV_CLIENTE">
+                <ScalarProperty Name="CORCLI" ColumnName="CORCLI" />
+                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
+                <ScalarProperty Name="CODCLI" ColumnName="CODCLI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_CUPONES">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_CUPONES">
+              <MappingFragment StoreEntitySet="SRV_CUPONES">
+                <ScalarProperty Name="CODCLI" ColumnName="CODCLI" />
+                <ScalarProperty Name="FECVIG" ColumnName="FECVIG" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="PORDESC" ColumnName="PORDESC" />
+                <ScalarProperty Name="CODCUP" ColumnName="CODCUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_PASAJERO">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_PASAJERO">
+              <MappingFragment StoreEntitySet="SRV_PASAJERO">
+                <ScalarProperty Name="TIPVIA" ColumnName="TIPVIA" />
+                <ScalarProperty Name="NUMASI" ColumnName="NUMASI" />
+                <ScalarProperty Name="NUMDOC" ColumnName="NUMDOC" />
+                <ScalarProperty Name="TIPDOC" ColumnName="TIPDOC" />
+                <ScalarProperty Name="CODRES" ColumnName="CODRES" />
+                <ScalarProperty Name="ESTTRAN" ColumnName="ESTTRAN" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="TELPAS" ColumnName="TELPAS" />
+                <ScalarProperty Name="CELPAS" ColumnName="CELPAS" />
+                <ScalarProperty Name="SEXPAS" ColumnName="SEXPAS" />
+                <ScalarProperty Name="DIRPAS" ColumnName="DIRPAS" />
+                <ScalarProperty Name="APEMPAS" ColumnName="APEMPAS" />
+                <ScalarProperty Name="APEPPAS" ColumnName="APEPPAS" />
+                <ScalarProperty Name="NOMPAS" ColumnName="NOMPAS" />
+                <ScalarProperty Name="CODPAS" ColumnName="CODPAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_PERFIL">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_PERFIL">
+              <MappingFragment StoreEntitySet="SRV_PERFIL">
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="NOMPER" ColumnName="NOMPER" />
+                <ScalarProperty Name="CODPER" ColumnName="CODPER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_PERSONAL">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_PERSONAL">
+              <MappingFragment StoreEntitySet="SRV_PERSONAL">
+                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="DNIPER" ColumnName="DNIPER" />
+                <ScalarProperty Name="APEPER" ColumnName="APEPER" />
+                <ScalarProperty Name="NOMPER" ColumnName="NOMPER" />
+                <ScalarProperty Name="CODPER" ColumnName="CODPER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_PROGRAMACION">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_PROGRAMACION">
+              <MappingFragment StoreEntitySet="SRV_PROGRAMACION">
+                <ScalarProperty Name="CODPROM" ColumnName="CODPROM" />
+                <ScalarProperty Name="CODTAR" ColumnName="CODTAR" />
+                <ScalarProperty Name="CODBUS" ColumnName="CODBUS" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="HORSALPRO" ColumnName="HORSALPRO" />
+                <ScalarProperty Name="FECSALPRO" ColumnName="FECSALPRO" />
+                <ScalarProperty Name="CODPRO" ColumnName="CODPRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_PROMOCION">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_PROMOCION">
+              <MappingFragment StoreEntitySet="SRV_PROMOCION">
+                <ScalarProperty Name="DESPROM" ColumnName="DESPROM" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="FECFIN" ColumnName="FECFIN" />
+                <ScalarProperty Name="FECINI" ColumnName="FECINI" />
+                <ScalarProperty Name="PORDESC" ColumnName="PORDESC" />
+                <ScalarProperty Name="CODPROM" ColumnName="CODPROM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_RESERVA">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_RESERVA">
+              <MappingFragment StoreEntitySet="SRV_RESERVA">
+                <ScalarProperty Name="CODPRODES" ColumnName="CODPRODES" />
+                <ScalarProperty Name="CODPRO" ColumnName="CODPRO" />
+                <ScalarProperty Name="CODCLI" ColumnName="CODCLI" />
+                <ScalarProperty Name="ESTTRAN" ColumnName="ESTTRAN" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="FECRES" ColumnName="FECRES" />
+                <ScalarProperty Name="CODRES" ColumnName="CODRES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_TIPO_SERVICIO">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_TIPO_SERVICIO">
+              <MappingFragment StoreEntitySet="SRV_TIPO_SERVICIO">
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="DESTIPSER" ColumnName="DESTIPSER" />
+                <ScalarProperty Name="NOMTIPSER" ColumnName="NOMTIPSER" />
+                <ScalarProperty Name="CODTIPSER" ColumnName="CODTIPSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_USUARIO">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_USUARIO">
+              <MappingFragment StoreEntitySet="SRV_USUARIO">
+                <ScalarProperty Name="CODPER" ColumnName="CODPER" />
+                <ScalarProperty Name="LOGUSU" ColumnName="LOGUSU" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="CLAUSU" ColumnName="CLAUSU" />
+                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_VW_ASIENTOS_RESERVADOSDES">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_VW_ASIENTOS_RESERVADOSDES">
+              <MappingFragment StoreEntitySet="SRV_VW_ASIENTOS_RESERVADOSDES">
+                <ScalarProperty Name="NUMASI" ColumnName="NUMASI" />
+                <ScalarProperty Name="CODPRO" ColumnName="CODPRO" />
+                <ScalarProperty Name="CODPAS" ColumnName="CODPAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_VW_ASIENTOS_RESERVADOSORI">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_VW_ASIENTOS_RESERVADOSORI">
+              <MappingFragment StoreEntitySet="SRV_VW_ASIENTOS_RESERVADOSORI">
+                <ScalarProperty Name="NUMASI" ColumnName="NUMASI" />
+                <ScalarProperty Name="CODPRO" ColumnName="CODPRO" />
+                <ScalarProperty Name="CODPAS" ColumnName="CODPAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_VW_CONSULTA_PROGRAMACION">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_VW_CONSULTA_PROGRAMACION">
+              <MappingFragment StoreEntitySet="SRV_VW_CONSULTA_PROGRAMACION">
+                <ScalarProperty Name="CUPASI" ColumnName="CUPASI" />
+                <ScalarProperty Name="NOMTIPSER" ColumnName="NOMTIPSER" />
+                <ScalarProperty Name="PRETAR" ColumnName="PRETAR" />
+                <ScalarProperty Name="DESTAR" ColumnName="DESTAR" />
+                <ScalarProperty Name="ORITAR" ColumnName="ORITAR" />
+                <ScalarProperty Name="HORSALPRO" ColumnName="HORSALPRO" />
+                <ScalarProperty Name="FECSALPRO" ColumnName="FECSALPRO" />
+                <ScalarProperty Name="CODPRO" ColumnName="CODPRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_VW_RESERVAS">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_VW_RESERVAS">
+              <MappingFragment StoreEntitySet="SRV_VW_RESERVAS">
+                <ScalarProperty Name="ESTTRAN" ColumnName="ESTTRAN" />
+                <ScalarProperty Name="CORCLI" ColumnName="CORCLI" />
+                <ScalarProperty Name="TIPVIA" ColumnName="TIPVIA" />
+                <ScalarProperty Name="DESTAR" ColumnName="DESTAR" />
+                <ScalarProperty Name="ORITAR" ColumnName="ORITAR" />
+                <ScalarProperty Name="HORSALPRO" ColumnName="HORSALPRO" />
+                <ScalarProperty Name="FECSALPRO" ColumnName="FECSALPRO" />
+                <ScalarProperty Name="FECRES" ColumnName="FECRES" />
+                <ScalarProperty Name="CODRES" ColumnName="CODRES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_TARIFA">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_TARIFA">
+              <MappingFragment StoreEntitySet="SRV_TARIFA">
+                <ScalarProperty Name="CODESTTAR" ColumnName="CODESTTAR" />
+                <ScalarProperty Name="CODTIPSER" ColumnName="CODTIPSER" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="PRETAR" ColumnName="PRETAR" />
+                <ScalarProperty Name="DESTAR" ColumnName="DESTAR" />
+                <ScalarProperty Name="ORITAR" ColumnName="ORITAR" />
+                <ScalarProperty Name="CODTAR" ColumnName="CODTAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_VW_CONSULTA_PERSONAL">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_VW_CONSULTA_PERSONAL">
+              <MappingFragment StoreEntitySet="SRV_VW_CONSULTA_PERSONAL">
+                <ScalarProperty Name="LOGUSU" ColumnName="LOGUSU" />
+                <ScalarProperty Name="APEPER" ColumnName="APEPER" />
+                <ScalarProperty Name="NOMPER" ColumnName="NOMPER" />
+                <ScalarProperty Name="DNIPER" ColumnName="DNIPER" />
+                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
+                <ScalarProperty Name="CODPER" ColumnName="CODPER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_TIPO_TARJETA">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_TIPO_TARJETA">
+              <MappingFragment StoreEntitySet="SRV_TIPO_TARJETA">
+                <ScalarProperty Name="MEDPAG" ColumnName="MEDPAG" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="NOMTIPTAR" ColumnName="NOMTIPTAR" />
+                <ScalarProperty Name="CODTIPTAR" ColumnName="CODTIPTAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_TARJETA">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_TARJETA">
+              <MappingFragment StoreEntitySet="SRV_TARJETA">
+                <ScalarProperty Name="CODTIPTAR" ColumnName="CODTIPTAR" />
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="FECEXP" ColumnName="FECEXP" />
+                <ScalarProperty Name="APETIT" ColumnName="APETIT" />
+                <ScalarProperty Name="NOMTIT" ColumnName="NOMTIT" />
+                <ScalarProperty Name="CODVER" ColumnName="CODVER" />
+                <ScalarProperty Name="NUMTAR" ColumnName="NUMTAR" />
+                <ScalarProperty Name="CODTARJETA" ColumnName="CODTARJETA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_COMPRA">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_COMPRA">
+              <MappingFragment StoreEntitySet="SRV_COMPRA">
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="CODTARJETA" ColumnName="CODTARJETA" />
+                <ScalarProperty Name="CODRES" ColumnName="CODRES" />
+                <ScalarProperty Name="MONTOT" ColumnName="MONTOT" />
+                <ScalarProperty Name="VALIGV" ColumnName="VALIGV" />
+                <ScalarProperty Name="SUBTOT" ColumnName="SUBTOT" />
+                <ScalarProperty Name="FECCOM" ColumnName="FECCOM" />
+                <ScalarProperty Name="CODCON" ColumnName="CODCON" />
+                <ScalarProperty Name="CODCOM" ColumnName="CODCOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

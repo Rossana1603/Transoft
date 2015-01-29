@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRUZ DEL SUR</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("CRUZ DEL SUR", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+
+
+                    @if (Session[UPC.TS.Infraestructure.Constantes.Sesiones.sessionUsuarioLog] != null)
+                    {
+                        if (Session[UPC.TS.Infraestructure.Constantes.Sesiones.sessionTipoPerfil] == "USU")
+                        {
+                            <li>@Html.ActionLink("Pagar Reserva", "PagarReservas", "Reserva")</li>
+                            <li>@Html.ActionLink("Anular Reserva", "AnularReserva", "Reserva")</li>
+                            <li>@Html.ActionLink("Mantenimiento Pasajero", "BuscarReservas", "Pasajero")</li>                        
+                        }
+                        else { 
+                            <li>@Html.ActionLink("Ges. Tarifario", "Index", "Tarifa")</li>
+                            <li>@Html.ActionLink("Ges. Promoción", "Index", "Promocion")</li>
+                            <li>@Html.ActionLink("Ges. Personal", "Index", "Personal")</li>
+                            <li>@Html.ActionLink("Ges. Medio Pago", "Index", "TipoTarjeta")</li>
+                            <li>@Html.ActionLink("Proyección de Ventas", "ProyeccionDeVentas", "Reportes")</li>
+                        }
+
+
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    
+    <div class="container body-content">
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - UPC - Proyecto CRUZ DEL SUR</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</body>
+</html>

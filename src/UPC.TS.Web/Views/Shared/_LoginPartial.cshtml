@@ -1,0 +1,13 @@
+﻿
+<ul class="nav navbar-nav navbar-right">
+    @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+
+    @if (Session[UPC.TS.Infraestructure.Constantes.Sesiones.sessionUsuarioLog] != null) {
+        <li>@Html.ActionLink(@Session[UPC.TS.Infraestructure.Constantes.Sesiones.sessionUsuarioLog].ToString(), "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Seguridad", routeValues: null, htmlAttributes: new { id = "logoutLink" })</li>
+    }
+    else { 
+        <li>@Html.ActionLink("Iniciar sesión", "IniciarSesion", "Seguridad", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+        
+</ul>

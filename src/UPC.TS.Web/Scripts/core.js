@@ -43,6 +43,7 @@ $('.upctbgrid').DataTable({
 
 $.fn.datepicker.defaults.language = "es";
 $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+$.fn.datepicker.defaults.autoclose =  true;
 
 
 function showNotifyByData(data) {

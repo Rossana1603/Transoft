@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="UPCEntitiesBD.contactenos" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="UPCEntitiesBD.sysdiagrams" Width="1.5" PointX="2.75" PointY="8.75" />
         <EntityTypeShape EntityType="UPCEntitiesBD.SRV_BUS" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="UPCEntitiesBD.SRV_CLIENTE" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="UPCEntitiesBD.SRV_CUPONES" Width="1.5" PointX="5.75" PointY="4.75" />
         <EntityTypeShape EntityType="UPCEntitiesBD.SRV_PASAJERO" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="UPCEntitiesBD.SRV_PERFIL" Width="1.5" PointX="7.75" PointY="5.75" />
@@ -30,6 +29,7 @@
         <EntityTypeShape EntityType="UPCEntitiesBD.SRV_COMPRA" Width="1.5" PointX="14.0000005" PointY="9.4663492838541679" />
         <AssociationConnector Association="UPCEntitiesBD.R_12" />
         <AssociationConnector Association="UPCEntitiesBD.R_18" />
+        <EntityTypeShape EntityType="UPCEntitiesBD.SRV_CLIENTE" Width="1.5" PointX="3.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

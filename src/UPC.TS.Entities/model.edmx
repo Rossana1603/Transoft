@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="UPCEntitiesBD.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UPCEntitiesBD.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="contactenos">
           <Key>
             <PropertyRef Name="idcon" />
@@ -36,6 +36,7 @@
           <Property Name="CODCLI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CODUSU" Type="int" />
           <Property Name="CORCLI" Type="varchar" MaxLength="50" />
+          <Property Name="ESTREG" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="SRV_COMPRA">
           <Key>
@@ -198,8 +199,8 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSDES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSDES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSDES">
           <Key>
             <PropertyRef Name="CODPAS" />
@@ -209,8 +210,8 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSDES' does
           <Property Name="CODPRO" Type="int" Nullable="false" />
           <Property Name="NUMASI" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSORI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSORI' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SRV_VW_ASIENTOS_RESERVADOSORI">
           <Key>
             <PropertyRef Name="CODPAS" />
@@ -220,8 +221,8 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_ASIENTOS_RESERVADOSORI' does
           <Property Name="CODPRO" Type="int" Nullable="false" />
           <Property Name="NUMASI" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PERSONAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_qmadera.dbo.SRV_VW_CONSULTA_PERSONAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SRV_VW_CONSULTA_PERSONAL">
           <Key>
             <PropertyRef Name="CODPER" />
@@ -234,8 +235,8 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PERSONAL' does not 
           <Property Name="APEPER" Type="varchar" MaxLength="50" />
           <Property Name="LOGUSU" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PROGRAMACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_qmadera.dbo.SRV_VW_CONSULTA_PROGRAMACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SRV_VW_CONSULTA_PROGRAMACION">
           <Key>
             <PropertyRef Name="CODPRO" />
@@ -249,8 +250,8 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_CONSULTA_PROGRAMACION' does 
           <Property Name="NOMTIPSER" Type="varchar" MaxLength="50" />
           <Property Name="CUPASI" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_qmadera.dbo.SRV_VW_RESERVAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SRV_VW_RESERVAS">
           <Key>
             <PropertyRef Name="CODRES" />
@@ -390,7 +391,6 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
           <EntitySet Name="contactenos" EntityType="UPCEntitiesBD.contactenos" />
           <EntitySet Name="sysdiagrams" EntityType="UPCEntitiesBD.sysdiagrams" />
           <EntitySet Name="SRV_BUS" EntityType="UPCEntitiesBD.SRV_BUS" />
-          <EntitySet Name="SRV_CLIENTE" EntityType="UPCEntitiesBD.SRV_CLIENTE" />
           <EntitySet Name="SRV_CUPONES" EntityType="UPCEntitiesBD.SRV_CUPONES" />
           <EntitySet Name="SRV_PASAJERO" EntityType="UPCEntitiesBD.SRV_PASAJERO" />
           <EntitySet Name="SRV_PERFIL" EntityType="UPCEntitiesBD.SRV_PERFIL" />
@@ -421,6 +421,7 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
             <End Role="SRV_TARJETA" EntitySet="SRV_TARJETA" />
             <End Role="SRV_COMPRA" EntitySet="SRV_COMPRA" />
           </AssociationSet>
+          <EntitySet Name="SRV_CLIENTE" EntityType="UPCEntitiesBD.SRV_CLIENTE" />
           </EntityContainer>
         <EntityType Name="contactenos">
           <Key>
@@ -455,14 +456,6 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
           <Property Name="NROEJE" Type="Int32" />
           <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="CODTIPSER" Type="Int32" />
-        </EntityType>
-        <EntityType Name="SRV_CLIENTE">
-          <Key>
-            <PropertyRef Name="CODCLI" />
-          </Key>
-          <Property Name="CODCLI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CODUSU" Type="Int32" />
-          <Property Name="CORCLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SRV_CUPONES">
           <Key>
@@ -715,6 +708,15 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SRV_CLIENTE">
+          <Key>
+            <PropertyRef Name="CODCLI" />
+          </Key>
+          <Property Name="CODCLI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODUSU" Type="Int32" />
+          <Property Name="CORCLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTREG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -755,15 +757,6 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
                 <ScalarProperty Name="ANIOBUS" ColumnName="ANIOBUS" />
                 <ScalarProperty Name="PLABUS" ColumnName="PLABUS" />
                 <ScalarProperty Name="CODBUS" ColumnName="CODBUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SRV_CLIENTE">
-            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_CLIENTE">
-              <MappingFragment StoreEntitySet="SRV_CLIENTE">
-                <ScalarProperty Name="CORCLI" ColumnName="CORCLI" />
-                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
-                <ScalarProperty Name="CODCLI" ColumnName="CODCLI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -987,6 +980,16 @@ warning 6002: The table/view 'db_qmadera.dbo.SRV_VW_RESERVAS' does not have a pr
                 <ScalarProperty Name="FECCOM" ColumnName="FECCOM" />
                 <ScalarProperty Name="CODCON" ColumnName="CODCON" />
                 <ScalarProperty Name="CODCOM" ColumnName="CODCOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRV_CLIENTE">
+            <EntityTypeMapping TypeName="UPCEntitiesBD.SRV_CLIENTE">
+              <MappingFragment StoreEntitySet="SRV_CLIENTE">
+                <ScalarProperty Name="ESTREG" ColumnName="ESTREG" />
+                <ScalarProperty Name="CORCLI" ColumnName="CORCLI" />
+                <ScalarProperty Name="CODUSU" ColumnName="CODUSU" />
+                <ScalarProperty Name="CODCLI" ColumnName="CODCLI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

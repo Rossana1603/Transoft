@@ -83,6 +83,7 @@
     <script type="text/javascript" language="javascript">
 
         function SeleccionarReserva(CODRES) {
+            $("body").data("CODRES", CODRES);
             $.ajax({
                 url: '@Url.Action("ListarPasajeroPorReserva", "Pasajero")',
                 type: 'POST',
@@ -127,7 +128,7 @@
                 data: { id : id},
                 success: function (result) {
                     showNotifyByData(result);
-                    document.forms[0].submit();
+                    SeleccionarReserva($("body").data("CODRES"));
                 },
                 error: errorAjax
             });

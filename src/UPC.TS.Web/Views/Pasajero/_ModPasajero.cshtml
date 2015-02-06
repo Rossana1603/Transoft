@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.NUMDOC)
-                            @Html.TextBoxFor(c => c.NUMDOC, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.NUMDOC, new { @Class = "form-control", @Maxlength = "8" })
                             @Html.ValidationMessageFor(c => c.NUMDOC)
                         </div>
                     </div>
@@ -81,6 +81,9 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        $("input[tmp='telefono']").inputmask("9-9999-99");
+        $("input[tmp='celular']").inputmask("9999-99999");
+
         $("#btnModificarPasajero").click(function () { guardarDatosPasajero(); });
         $("#TIPDOC").click(function () { cambiarLongitudDocumento($(this).val()); });
     });

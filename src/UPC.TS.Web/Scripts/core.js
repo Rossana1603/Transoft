@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(function () {
     $("input[tmp='telefono']").inputmask("9-9999-99");
-    $("input[tmp='celular']").inputmask("999-999-999");
+    $("input[tmp='celular']").inputmask("9999-99999");
 });
 
 function errorAjax() {
@@ -53,6 +53,7 @@ function showNotifyByData(data) {
         text: data.Message,
         type: data.TypeResponse 
     });
+    setTimeout(function () { }, 5000);
 }
 
 function showNotify(title, message, typeMessage) {
@@ -62,6 +63,7 @@ function showNotify(title, message, typeMessage) {
         text: message,
         type: typeMessage
     });
+    setTimeout(function () { }, 5000);
 }
 
 /*Extensiones*/

@@ -72,6 +72,7 @@ namespace UPC.TS.Web.Controllers
 
         public JsonResult GrabarPasajero(PasajeroModels model) {
             var entidad = Mapper.Map<PasajeroModels, SRV_PASAJERO>(model);
+            entidad.ESTREG = "1";
             var result = _pasajeroLogic.GrabarPasajeros(entidad);
             return Json(result);
         }

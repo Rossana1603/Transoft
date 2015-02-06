@@ -83,6 +83,7 @@ namespace UPC.TS.Web.Controllers
             var result = _usuarioLogic.IngresarSistema(entidad);
             if (result.Success) {
                 Session[Sesiones.sessionUsuarioLog] = model.usuario.LOGUSU;
+                Session[Sesiones.sessionTipoPerfil] = "USU";
             }
             return Json(result);
         }
@@ -93,6 +94,7 @@ namespace UPC.TS.Web.Controllers
             var result = _usuarioLogic.AgregarUsuarioReserva(usuario, cliente);
             if (result.Success) {
                 Session[Sesiones.sessionUsuarioLog] = model.usuario.LOGUSU;
+                Session[Sesiones.sessionTipoPerfil] = "USU";
             }
             return Json(result);
         }

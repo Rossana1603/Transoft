@@ -30,7 +30,7 @@ namespace UPC.TS.Web.Controllers
 
         public JsonResult IngresarSistema(UsuarioModels model)
         {
-            if (model.LOGUSU == "admin@cruzdelsur.com")
+            if (model.LOGUSU == "admin@cruzdelsur.com" && model.CLAUSU == "123456")
             {
                 var result = new ResponseEntity();
                 result.Success = true;

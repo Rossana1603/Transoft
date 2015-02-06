@@ -12,31 +12,47 @@ namespace UPC.TS.Web.Models
         public int CODPAS { get; set; }
         [Display(Name = "Nombres")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z ']+$", ErrorMessage = "Solo se aceptan letras")]
         public string NOMPAS { get; set; }
+
         [Display(Name = "Apellido paterno")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z ']+$", ErrorMessage = "Solo se aceptan letras")]
         public string APEPPAS { get; set; }
+
         [Display(Name = "Apellido materno")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z ']+$", ErrorMessage = "Solo se aceptan letras")]
         public string APEMPAS { get; set; }
+
         [Display(Name = "Direccion")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string DIRPAS { get; set; }
+
         [Display(Name = "Sexo")]
         public string SEXPAS { get; set; }
+
         [Display(Name = "Celular")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string CELPAS { get; set; }
+
         [Display(Name = "Telefono")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string TELPAS { get; set; }
+
         public string ESTREG { get; set; }
+
         public string ESTTRAN { get; set; }
+
         public Nullable<int> CODRES { get; set; }
+
         [Display(Name="Tipo de documento")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string TIPDOC { get; set; }
+
+
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Solo se aceptan numeros")]
         [Display(Name = "Nº documento")]
         public string NUMDOC { get; set; }
         public string NUMASI_ORI { get; set; }

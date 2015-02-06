@@ -188,7 +188,7 @@
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.NUMDOC)
-                            @Html.TextBoxFor(c => c.pasajero.NUMDOC, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.NUMDOC, new { @Class = "form-control", @MaxLength="8" })
                             @Html.ValidationMessageFor(c => c.pasajero.NUMDOC)
                         </div>
                     </div>
@@ -200,38 +200,38 @@
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.NOMPAS)
-                            @Html.TextBoxFor(c => c.pasajero.NOMPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.NOMPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.pasajero.NOMPAS)
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.APEPPAS)
-                            @Html.TextBoxFor(c => c.pasajero.APEPPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.APEPPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.pasajero.APEPPAS)
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.APEMPAS)
-                            @Html.TextBoxFor(c => c.pasajero.APEMPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.APEMPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.pasajero.APEMPAS)
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             @Html.LabelFor(c => c.pasajero.DIRPAS)
-                            @Html.TextBoxFor(c => c.pasajero.DIRPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.DIRPAS, new { @Class = "form-control", @Maxlength = "50" })
                             @Html.ValidationMessageFor(c => c.pasajero.DIRPAS)
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.TELPAS)
-                            @Html.TextBoxFor(c => c.pasajero.TELPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.TELPAS, new { @Class = "form-control", @tmp = "telefono" })
                             @Html.ValidationMessageFor(c => c.pasajero.TELPAS)
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.pasajero.CELPAS)
-                            @Html.TextBoxFor(c => c.pasajero.CELPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.pasajero.CELPAS, new { @Class = "form-control", @tmp = "celular" })
                             @Html.ValidationMessageFor(c => c.pasajero.CELPAS)
                         </div>
                     </div>
@@ -294,8 +294,18 @@
             $("#btnGenerarReserva").click(function () { generarReserva(); });
             $("#group-Origen button").click(function () { seleccionarAsientoORI(this); });
             $("#group-Destino button").click(function () { seleccionarAsientoDES(this); });
+            $("#pasajero_TIPDOC").change(function () { cambiarLongitudDocumento($(this).val()); });
         });
 
+        function cambiarLongitudDocumento(valor) {
+            if (valor == "1") {
+                $("#pasajero_NUMDOC").removeAttr("maxlength");
+                $("#pasajero_NUMDOC").attr("maxlength", 8);
+            } else {
+                $("#pasajero_NUMDOC").removeAttr("maxlength");
+                $("#pasajero_NUMDOC").attr("maxlength", 12);
+            }
+        }
 
         //REGRESAR AL INICIO
         function regresarInicio() {

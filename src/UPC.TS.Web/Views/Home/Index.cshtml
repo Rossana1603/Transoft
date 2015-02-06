@@ -95,8 +95,13 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $('#FECSALIDA').datepicker();
-            $('#FECRETORNO').datepicker();
+            $('#FECSALIDA').datepicker({
+                startDate: "@DateTime.Now.ToString("dd/MM/yyyy")"
+            });
+
+            $('#FECRETORNO').datepicker({
+                startDate: "@DateTime.Now.ToString("dd/MM/yyyy")"
+            });
         });
 
         function seleccionarTipoVia(obj) {
@@ -109,7 +114,7 @@
         function formBusItinerarioValido() {
             var valor = "";
             $("input:radio[name='TIPVIA']").each(function () {
-                if ($(this).is(":checked")) 
+                if ($(this).is(":checked"))
                     valor = $(this).val();
             });
             $("#frmBuqItinerario").data("validator").settings.ignore = (valor != "I_V")? "#FECRET" : "";

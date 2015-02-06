@@ -31,7 +31,9 @@ namespace UPC.TS.Web
                       //"~/Scripts/pnotify.confirm.js",
                       "~/Scripts/pnotify.core.js",
                       "~/Scripts/pnotify.reference.js",
-                      "~/Scripts/pnotify.tooltip.js"
+                      "~/Scripts/pnotify.tooltip.js",
+                      "~/Scripts/jquery.inputmask.js"
+                      
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

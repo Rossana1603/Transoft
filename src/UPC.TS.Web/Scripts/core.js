@@ -1,4 +1,10 @@
-﻿function errorAjax() {
+﻿
+$(document).ready(function () {
+    $("input[tmp='telefono']").inputmask("9-9999-99");
+    $("input[tmp='celular']").inputmask("999-999-999");
+});
+
+function errorAjax() {
     alert("Se producjo un error inesperado mantengase en contacto con el administrador del Sistema");
 }
 
@@ -107,3 +113,4 @@ jQuery.validator.unobtrusive.adapters.add("greaterthan", ["otherfield"], functio
     options.rules["greaterthan"] = "#" + options.params.otherfield;
     options.messages["greaterthan"] = options.message;
 });
+

@@ -43,7 +43,7 @@ namespace UPC.TS.DataImplement
 
         public IEnumerable<SRV_PASAJERO> ListarPasajeroPorReserva(int CODRES)
         {
-            return this.GetMany(c => c.CODRES == CODRES).Where(h=>h.ESTREG=="1");
+            return this.GetMany(c => c.CODRES == CODRES && c.ESTREG == "1");
         }
     }
 }

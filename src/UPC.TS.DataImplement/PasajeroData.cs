@@ -27,7 +27,8 @@ namespace UPC.TS.DataImplement
 
         public bool Eliminar(int id)
         {
-            throw new NotImplementedException();
+            this.Delete(id);
+            return true;
         }
 
         public SRV_PASAJERO BuscarPorId(int id)
@@ -42,7 +43,7 @@ namespace UPC.TS.DataImplement
 
         public IEnumerable<SRV_PASAJERO> ListarPasajeroPorReserva(int CODRES)
         {
-            return this.GetMany(c => c.CODRES == CODRES);
+            return this.GetMany(c => c.CODRES == CODRES).Where(h=>h.ESTREG=="1");
         }
     }
 }

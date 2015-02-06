@@ -68,5 +68,18 @@ namespace UPC.TS.BusinessLogic
         {
             return _pasajeroData.BuscarPorId(id);
         }
+
+        public ResponseEntity EliminarPasajero(int id)
+        {
+            try
+            {
+                _pasajeroData.Eliminar(id);
+                return new ResponseEntity("Se elimino el pasajero seleccionado satisfactoriamente", true);
+            }
+            catch (Exception ex)
+            {
+                return new ResponseEntity(Response.ErrorGeneral);
+            }
+        }
     }
 }

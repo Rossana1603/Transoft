@@ -75,5 +75,11 @@ namespace UPC.TS.Web.Controllers
             var result = _pasajeroLogic.GrabarPasajeros(entidad);
             return Json(result);
         }
+
+        public JsonResult EliminarPasajero(int id)
+        {
+            var result = _pasajeroLogic.EliminarPasajero(id);
+            return Json(result);
+        }
 	}
 }

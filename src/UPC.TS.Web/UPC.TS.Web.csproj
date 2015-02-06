@@ -39,10 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=1.0.0.155, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Practices\Microsoft.Practices.Unity.dll</HintPath>
@@ -236,6 +241,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Librerias\AutoMapper.dll" />
+    <Content Include="Librerias\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="Librerias\Microsoft.Practices.Unity.Configuration.dll" />
+    <Content Include="Librerias\Microsoft.Practices.Unity.dll" />
+    <Content Include="Librerias\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+    <Content Include="Librerias\Microsoft.Practices.Unity.Interception.dll" />
     <Content Include="Reportes\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.es.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />

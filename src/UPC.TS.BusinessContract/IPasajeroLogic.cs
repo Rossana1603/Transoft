@@ -15,5 +15,6 @@ namespace UPC.TS.BusinessContract
         ResponseEntity RegistrarPasajeros(List<SRV_PASAJERO> listPasajero);
         IEnumerable<SRV_PASAJERO> ListarPasajeroPorReserva(int codReserva);
         SRV_PASAJERO BuscarPorId(int id);
+        ResponseEntity EliminarPasajero(int id);
     }
 }

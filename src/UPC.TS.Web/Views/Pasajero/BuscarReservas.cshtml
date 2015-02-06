@@ -97,7 +97,7 @@
                         html += "<button type='button' onclick='verPanelPasajero(" + va.CODPAS + ")' class='btn btn'><i class='fa fa-pencil'></i></button>";
                         html += "</td>";
                         html += "<td>";
-                        html += "<button type='button' class='btn btn'><i class='fa fa-trash-o'></i></button>";
+                        html += "<button type='button' onclick='EliminarPasajero(" + va.CODPAS + ")' class='btn btn'><i class='fa fa-trash-o'></i></button>";
                         html += "</td>";
                         html += "<td>" + va.NUMDOC + "</td>";
                         html += "<td>" + va.NOMPAS + "</td>";
@@ -116,6 +116,21 @@
 
         function verPanelPasajero(CODPAS) {
             $("#pnlModificarPasajero").load('@Url.Action("ModPasajero", "Pasajero")' + "?CODPAS=" + CODPAS).modal('toggle');
+        }
+
+        function EliminarPasajero(id) {
+            if (!confirm("¿Está seguro que desea eliminar el pasajero?")) return;
+            $.ajax({
+                url: '@Url.Action("EliminarPasajero", "Pasajero")',
+                type: 'POST',
+                async: true,
+                data: { id : id},
+                success: function (result) {
+                    showNotifyByData(result);
+                    document.forms[0].submit();
+                },
+                error: errorAjax
+            });
         }
 
     </script>

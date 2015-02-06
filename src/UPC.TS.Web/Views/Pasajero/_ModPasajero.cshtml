@@ -59,12 +59,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.TELPAS)
-                            @Html.TextBoxFor(c => c.TELPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.TELPAS, new { @Class = "form-control", @tmp = "telefono" })
                             @Html.ValidationMessageFor(c => c.TELPAS)
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.CELPAS)
-                            @Html.TextBoxFor(c => c.CELPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.CELPAS, new { @Class = "form-control", @tmp = "celular" })
                             @Html.ValidationMessageFor(c => c.CELPAS)
                         </div>
                     </div>

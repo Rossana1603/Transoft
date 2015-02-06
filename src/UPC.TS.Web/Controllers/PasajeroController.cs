@@ -64,7 +64,8 @@ namespace UPC.TS.Web.Controllers
                 TIPDOC = result.TIPDOC,
                 SEXPAS = result.SEXPAS,
                 TELPAS = result.TELPAS,
-                CELPAS = result.CELPAS
+                CELPAS = result.CELPAS,
+                NUMASI = result.NUMASI
             };
             model = entidad;
             return PartialView("_ModPasajero", model);

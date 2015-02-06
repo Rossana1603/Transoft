@@ -97,6 +97,7 @@
     }
 
     function formModificarPasajeroValido() {
+        $("#frmModificarPasajero").updateValidation();
         if (!$("#frmModificarPasajero").valid())
             return false;
         else

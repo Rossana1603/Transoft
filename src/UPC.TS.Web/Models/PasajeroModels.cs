@@ -30,6 +30,7 @@ namespace UPC.TS.Web.Models
         public string DIRPAS { get; set; }
 
         [Display(Name = "Sexo")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string SEXPAS { get; set; }
 
         [Display(Name = "Celular")]

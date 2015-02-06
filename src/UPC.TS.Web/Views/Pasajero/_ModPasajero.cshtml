@@ -33,26 +33,26 @@
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.NOMPAS)
-                            @Html.TextBoxFor(c => c.NOMPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.NOMPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.NOMPAS)
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.APEPPAS)
-                            @Html.TextBoxFor(c => c.APEPPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.APEPPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.APEPPAS)
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(c => c.APEMPAS)
-                            @Html.TextBoxFor(c => c.APEMPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.APEMPAS, new { @Class = "form-control", @Maxlength = "30" })
                             @Html.ValidationMessageFor(c => c.APEMPAS)
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             @Html.LabelFor(c => c.DIRPAS)
-                            @Html.TextBoxFor(c => c.DIRPAS, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.DIRPAS, new { @Class = "form-control", @Maxlength = "50" })
                             @Html.ValidationMessageFor(c => c.DIRPAS)
                         </div>
                     </div>
@@ -82,9 +82,30 @@
 
     $(document).ready(function () {
         $("#btnModificarPasajero").click(function () { guardarDatosPasajero(); });
+        $("#TIPDOC").click(function () { cambiarLongitudDocumento($(this).val()); });
     });
 
-    function guardarDatosPasajero() { 
+
+    function cambiarLongitudDocumento(valor) {
+        if (valor == "1") {
+            $("#NUMDOC").removeAttr("maxlength");
+            $("#NUMDOC").attr("maxlength", 8);
+        } else {
+            $("#NUMDOC").removeAttr("maxlength");
+            $("#NUMDOC").attr("maxlength", 12);
+        }
+    }
+
+    function formModificarPasajeroValido() {
+        if (!$("#frmModificarPasajero").valid())
+            return false;
+        else
+            return true;
+    }
+
+    function guardarDatosPasajero() {
+        if (!formModificarPasajeroValido()) return;
+
         $.ajax({
             url: '@Url.Action("GrabarPasajero", "Pasajero")',
             type: 'POST',

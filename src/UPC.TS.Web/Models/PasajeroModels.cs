@@ -34,10 +34,14 @@ namespace UPC.TS.Web.Models
         public string SEXPAS { get; set; }
 
         [Display(Name = "Celular")]
+        [StringLength(16, ErrorMessage = "El campo debe tener un máximo de 16 dígitos.")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Solo se aceptan numeros")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string CELPAS { get; set; }
 
         [Display(Name = "Telefono")]
+        [StringLength(16, ErrorMessage = "El campo debe tener un máximo de 16 dígitos.")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Solo se aceptan numeros")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string TELPAS { get; set; }
 
@@ -51,7 +55,7 @@ namespace UPC.TS.Web.Models
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string TIPDOC { get; set; }
 
-
+        [StringLength(16, ErrorMessage = "El campo debe tener un máximo de 16 dígitos.")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Solo se aceptan numeros")]
         [Display(Name = "Nº documento")]

@@ -2,6 +2,22 @@
 $(document).ready(function () {
     $("input[tmp='telefono']").inputmask("9-9999-99");
     $("input[tmp='celular']").inputmask("9999-99999");
+
+    $('body').tooltip({
+        title: function () {
+            if ($(this).find("i.fa-search-plus").length) return "Ver";
+            if ($(this).find("i.fa-search").length) return "Ver";
+            if ($(this).find("i.fa-pencil").length) return "Editar";
+            if ($(this).find("i.fa-trash-o").length) return "Eliminar";
+            if ($(this).find("i.fa-folder-open").length) return "Abrir";
+            if ($(this).find("i.fa-paperclip").length) return "Descargar";
+            if ($(this).find("i.fa-upload").length) return "Adjuntar";
+            return false;
+        },
+        placement: 'left',
+        selector: 'a:has(i.fa-search-plus), a:has(i.fa-search), a:has(i.fa-pencil), a:has(i.fa-trash-o), a:has(i.fa-folder-open), a:has(i.fa-paperclip),a:has(i.fa-cog), a:has(i.fa-upload)'
+    });
+
 });
 
 function errorAjax() {

@@ -28,9 +28,9 @@ namespace UPC.TS.Web.Models
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string DESTAR { get; set; }
         [Display(Name = "Precio")]
-        [RegularExpression(@"^\d+(?:\.\d{1,2})?$", ErrorMessage = "Ingrese un número valido ")]
+        [RegularExpression(@"^\d+(?:\.\d{1,2})?$", ErrorMessage = "Ingrese un valor valido")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Range(1, 999999, ErrorMessage = "Ingrese un valor mayor a 0")]
+        [Range(10, 1000, ErrorMessage = "El precio debe ser mayor que S/10 y menor a S/1000")]
         public Nullable<decimal> PRETAR { get; set; }
         public string ESTREG { get; set; }
         [Display(Name = "Estado")]
@@ -65,7 +65,7 @@ namespace UPC.TS.Web.Models
             this.LIST_ESTTAR = new List<SelectListItem>();
 
             this.LIST_ESTTAR.Add(new SelectListItem() { Text = "Publicado", Value="P" });
-            this.LIST_ESTTAR.Add(new SelectListItem() { Text = "No publicar", Value = "N" });
+            this.LIST_ESTTAR.Add(new SelectListItem() { Text = "No publicado", Value = "N" });
             
         }
 

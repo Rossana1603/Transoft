@@ -24,6 +24,7 @@ namespace UPC.TS.Web.Models
         public int CODTIPTAR { get; set; }
         [Display(Name="Descripción")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [StringLength(28, ErrorMessage = "La descripción debe tener máximo 28 letras")]
         public string NOMTIPTAR { get; set; }
         [Display(Name="Estado")]
         [Required(ErrorMessage = "Este campo es obligatorio")]

@@ -23,7 +23,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(c => c.NOMTIPTAR)
-                            @Html.TextBoxFor(c => c.NOMTIPTAR, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.NOMTIPTAR, new { @Class = "form-control", @maxlength = "28"})
                             @Html.ValidationMessageFor(c => c.NOMTIPTAR)
                         </div>
                     </div>

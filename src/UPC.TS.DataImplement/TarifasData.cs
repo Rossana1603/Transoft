@@ -67,19 +67,20 @@ namespace UPC.TS.DataImplement
 
         public IEnumerable<SRV_TARIFA> ListarTarifaFiltro(SRV_TARIFA entidad)
         {
-            var lista = new List<SRV_TARIFA>();
-            lista = this.GetMany(c => c.ESTREG == "1").ToList();
-            if (!string.IsNullOrEmpty(entidad.DESTAR)) {
-                lista = lista.Where(c => c.DESTAR == entidad.DESTAR).ToList();
-            }
-            else if (!string.IsNullOrEmpty(entidad.ORITAR)) {
-                lista = lista.Where(c => c.ORITAR == entidad.ORITAR).ToList();
-            }
-            else if (!string.IsNullOrEmpty(entidad.CODESTTAR))
-            {
-                lista = lista.Where(c => c.CODESTTAR == entidad.CODESTTAR).ToList();
-            }
-            return lista;
+
+            if (!string.IsNullOrEmpty(entidad.ORITAR) && string.IsNullOrEmpty(entidad.DESTAR) && string.IsNullOrEmpty(entidad.CODESTTAR)) 
+               return this.GetMany(c => c.ORITAR == entidad.ORITAR && c.ESTREG == "1").ToList();
+            if (string.IsNullOrEmpty(entidad.ORITAR) && !string.IsNullOrEmpty(entidad.DESTAR) && string.IsNullOrEmpty(entidad.CODESTTAR))
+                return this.GetMany(c => c.DESTAR == entidad.DESTAR && c.ESTREG == "1").ToList();
+            if (string.IsNullOrEmpty(entidad.ORITAR) && string.IsNullOrEmpty(entidad.DESTAR) && !string.IsNullOrEmpty(entidad.CODESTTAR))
+                return this.GetMany(c => c.CODESTTAR == entidad.CODESTTAR && c.ESTREG == "1").ToList();
+            if (!string.IsNullOrEmpty(entidad.ORITAR) && !string.IsNullOrEmpty(entidad.DESTAR) && string.IsNullOrEmpty(entidad.CODESTTAR))
+                return this.GetMany(c => c.ORITAR == entidad.ORITAR && c.DESTAR == entidad.DESTAR && c.ESTREG == "1").ToList();
+            if (!string.IsNullOrEmpty(entidad.ORITAR) && string.IsNullOrEmpty(entidad.DESTAR) && !string.IsNullOrEmpty(entidad.CODESTTAR))
+                return this.GetMany(c => c.ORITAR == entidad.ORITAR && c.CODESTTAR == entidad.CODESTTAR && c.ESTREG == "1").ToList();
+            if (string.IsNullOrEmpty(entidad.ORITAR) && !string.IsNullOrEmpty(entidad.DESTAR) && !string.IsNullOrEmpty(entidad.CODESTTAR))
+                return this.GetMany(c => c.DESTAR == entidad.DESTAR && c.CODESTTAR == entidad.CODESTTAR && c.ESTREG == "1").ToList();
+            return this.GetMany(c => c.ESTREG == "1");
         }
     }
 }

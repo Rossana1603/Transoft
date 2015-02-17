@@ -27,6 +27,15 @@ namespace UPC.TS.BusinessLogic
 
         public ResponseEntity GrabarPasajeros(SRV_PASAJERO entidad)
         {
+            if (entidad.TIPDOC.Equals("1") && entidad.NUMDOC.Length != 8) {
+                return new ResponseEntity("No se pudo registrar, numero incorrecto de DNI");
+            }
+
+            if (entidad.TIPDOC.Equals("2") && entidad.NUMDOC.Length != 15)
+            {
+                return new ResponseEntity("No se pudo registrar, numero incorrecto de Carné de extranjeria");
+            }
+
             if (entidad.CODPAS.Equals(0))
             {
                 _pasajeroData.Registrar(entidad);

@@ -45,6 +45,13 @@ namespace UPC.TS.BusinessLogic
                     var entidadReserva = _reservaData.Registrar(reserva);
                     foreach (var item in listPasajero) {
                         item.CODRES = entidadReserva.CODRES;
+                        if (item.TIPDOC.Equals("1") && item.NUMDOC.Length != 8) {
+                            return new ResponseEntity("No se pudo registrar, numero incorrecto de DNI");
+                        }
+                        if (item.TIPDOC.Equals("2") && item.NUMDOC.Length != 15)
+                        {
+                            return new ResponseEntity("No se pudo registrar, numero incorrecto de Carné de extranjeria");
+                        }
                         _pasajeroData.Registrar(item);
                     }                        
                     tran.Complete();

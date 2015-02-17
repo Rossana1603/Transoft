@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                       @Html.LabelFor(c => c.TipoTarjeta.NOMTIPTAR)
+                        @Html.LabelFor(c => c.TipoTarjeta.NOMTIPTAR)
                         @Html.TextBoxFor(c => c.TipoTarjeta.NOMTIPTAR, new { @class = "form-control" })
                     </div>
                 </div>
@@ -59,7 +59,18 @@
                 {
                     <tr>
                         <td><button type="button" onclick='SeleccionarTipoTarjeta(@item.CODTIPTAR)' class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar Medio de Pago"><i class="fa fa-pencil fa-fw"></i></button></td>
-                        <td><button type="button" onclick='EliminarTipoTarjeta(@item.CODTIPTAR)' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar Medio de Pago"><i class="fa fa-trash-o fa-fw"></i></button></td>
+
+                        <td>
+                            @if (item.ESTREG.Equals("1"))
+                            { 
+                                <button type="button" onclick='EliminarTipoTarjeta(@item.CODTIPTAR)' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar Medio de Pago"><i class="fa fa-trash-o fa-fw"></i></button>
+                            }
+                            else
+                            {
+                                <button type="button" onclick='EliminarTipoTarjeta(@item.CODTIPTAR)' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar Medio de Pago" disabled><i class="fa fa-trash-o fa-fw"></i></button>
+                            }
+                        </td>
+
                         <td>@item.CODTIPTAR</td>
                         <td>@item.MEDPAGDES</td>
                         <td>@item.NOMTIPTAR</td>
@@ -80,7 +91,7 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#btnRegistroTipoTarjeta").click(function () { RegistroTipoTarjeta(); });
             $("#btnBuscarTipoTarjeta").click(function () { BuscarTipoTarjeta(); });
         });
@@ -96,7 +107,7 @@
                 url: '@Url.Action("EliminarTipoTarjeta", "TipoTarjeta")',
                 type: 'POST',
                 async: true,
-                data: { id : id},
+                data: { id: id },
                 success: function (result) {
                     showNotifyByData(result);
                     document.forms[0].submit();

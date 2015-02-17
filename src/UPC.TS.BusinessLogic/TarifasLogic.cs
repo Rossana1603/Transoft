@@ -29,9 +29,17 @@ namespace UPC.TS.BusinessLogic
         {
             try
             {
-                if (entidad.CODTAR.Equals(0))
+                if (entidad.CODTAR.Equals(0)) {
+                    var tarifas = _tarifasData.ListarTodo().Where(c=>c.ORITAR == entidad.ORITAR && c.DESTAR == entidad.DESTAR  && c.ESTREG == "1");
+                    if (tarifas.Any()) {
+                        return new ResponseEntity("No se puede grabar mas de una tarifa con el mismo origen y destino");    
+                    }
                     _tarifasData.Registrar(entidad);
-                else {
+                } else {
+                    var tarifas = _tarifasData.ListarTodo().Where( c => c.CODTAR != entidad.CODTAR && c.ORITAR == entidad.ORITAR && c.DESTAR == entidad.DESTAR && c.ESTREG == "1");
+                    if (tarifas.Any()) {
+                        return new ResponseEntity("No se puede grabar mas de una tarifa con el mismo origen y destino");
+                    }
                     var tarifa = _tarifasData.BuscarPorId(entidad.CODTAR);
                     tarifa.PRETAR = entidad.PRETAR;
                     tarifa.CODESTTAR = entidad.CODESTTAR;

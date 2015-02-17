@@ -24,14 +24,17 @@ namespace UPC.TS.Web.Models
         public int CODPER { get; set; }
         [Display(Name="Nombre Personal")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [StringLength(50, ErrorMessage = "Ingrese mínimo 5 caracteres", MinimumLength = 5)]
+        [RegularExpression(@"^[a-zA-Z ']+$", ErrorMessage = "Solo se aceptan letras")]
+        [StringLength(50, ErrorMessage = "Ingrese mínimo 3 caracteres", MinimumLength = 3)]
         public string NOMPER { get; set; }
         [Display(Name="Apellidos Personal")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [StringLength(50, ErrorMessage = "Ingrese mínimo 5 caracteres", MinimumLength = 5)]
+        [RegularExpression(@"^[a-zA-Z ']+$", ErrorMessage = "Solo se aceptan letras")]
+        [StringLength(50, ErrorMessage = "Ingrese mínimo 3 caracteres", MinimumLength = 3)]
         public string APEPER { get; set; }
         [Display(Name="Nro. DNI")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Solo se aceptan numeros")]
         [StringLength(8, ErrorMessage = "El DNI debe tener 8 digitos", MinimumLength = 8)]
         //[MinLength(8, ErrorMessage = "El DNI debe tener 8 digitos")]
         public string DNIPER { get; set; }

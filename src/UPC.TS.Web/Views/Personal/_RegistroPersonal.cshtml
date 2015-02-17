@@ -1,4 +1,5 @@
-﻿@model UPC.TS.Web.Models.PersonalModels
+﻿@using UPC.TS.Infraestructure.Constantes;
+@model UPC.TS.Web.Models.PersonalModels
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -27,14 +28,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(c => c.NOMPER)
-                            @Html.TextBoxFor(c => c.NOMPER, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.NOMPER, new { @Class = "form-control", @Maxlength = "35" })
                             @Html.ValidationMessageFor(c => c.NOMPER)
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(c => c.APEPER)
-                            @Html.TextBoxFor(c => c.APEPER, new { @Class = "form-control" })
+                            @Html.TextBoxFor(c => c.APEPER, new { @Class = "form-control", @Maxlength = "35" })
                             @Html.ValidationMessageFor(c => c.APEPER)
                         </div>
                     </div>
@@ -47,7 +48,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(c => c.Usuario.LOGUSU)
-                                        @Html.TextBoxFor(c => c.Usuario.LOGUSU, new { @Class = "form-control", @placeholder = "correo@dominio.com" })
+                                        @Html.TextBoxFor(c => c.Usuario.LOGUSU, new { @Class = "form-control", @Maxlength = "35", @placeholder = "correo@dominio.com" })
                                         @Html.ValidationMessageFor(c => c.Usuario.LOGUSU)
                                     </div>
                                 </div>
@@ -56,14 +57,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(c => c.Usuario.CLAUSU)
-                                        @Html.PasswordFor(c => c.Usuario.CLAUSU, new { @Class = "form-control" })
+                                        @Html.PasswordFor(c => c.Usuario.CLAUSU, new { @Class = "form-control", @Maxlength = "15", @value = @Model.Usuario.CLAUSU })
                                         @Html.ValidationMessageFor(c => c.Usuario.CLAUSU)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(c => c.Usuario.CLAUSU_REP)
-                                        @Html.PasswordFor(c => c.Usuario.CLAUSU_REP, new { @Class = "form-control" })
+                                        @Html.PasswordFor(c => c.Usuario.CLAUSU_REP, new { @Class = "form-control", @Maxlength = "15", @value = @Model.Usuario.CLAUSU })
                                         @Html.ValidationMessageFor(c => c.Usuario.CLAUSU_REP)
                                     </div>
                                 </div>
@@ -83,14 +84,24 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btnGrabarPersonal").click(function () { GrabarPersonal(); });
-        
+
         $('[data-val-equalto]').attr("data-val-equalto", "Las contraseñas deben ser iguales");
     });
 
     function GrabarPersonal()
     {
+
+
         if (!formRegPersonalValido()) return;
+
+        if ($("#Usuario_CLAUSU").val() != $("#Usuario_CLAUSU_REP").val()) {
+            showNotify('@TitleResponse.alert', "Las contraseñas no coinciden", '@TypeResponse.alert.ToString()');
+            return;
+        }
+
         if (!confirm("¿Está seguro que desea registrar al personal?")) return;
+
+
 
         $.ajax({
             url: '@Url.Action("GrabarPersonal", "Personal")',

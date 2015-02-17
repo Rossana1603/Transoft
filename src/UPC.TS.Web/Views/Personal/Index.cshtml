@@ -91,7 +91,7 @@
 
 
         function EliminarPersonal(id) {
-            if (!confirm("Esta seguro que desea eliminar la Personal")) return;
+            if (!confirm("Esta seguro que desea eliminar el Personal")) return;
             $.ajax({
                 url: '@Url.Action("EliminarPersonal", "Personal")',
                 type: 'POST',

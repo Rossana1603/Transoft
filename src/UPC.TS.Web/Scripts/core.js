@@ -64,20 +64,22 @@ $.fn.datepicker.defaults.autoclose =  true;
 
 function showNotifyByData(data) {
     //var stack_bar_top = { "dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0 };
-    new PNotify({
-        title: data.Title,
-        text: data.Message,
-        type: data.TypeResponse 
-    });
+    alert(data.Message);
+    //new PNotify({
+    //    title: data.Title,
+    //    text: data.Message,
+    //    type: data.TypeResponse 
+    //});
 }
 
 function showNotify(title, message, typeMessage) {
+    alert(message);
     //var stack_bar_top = { "dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0 };
-    new PNotify({
-        title: title,
-        text: message,
-        type: typeMessage
-    });
+    //new PNotify({
+    //    title: title,
+    //    text: message,
+    //    type: typeMessage
+    //});
 }
 
 /*Extensiones*/

@@ -1,4 +1,6 @@
-﻿@model UPC.TS.Web.Models.PersonalModels
+﻿@using UPC.TS.Infraestructure.Constantes;
+
+@model UPC.TS.Web.Models.PersonalModels
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -54,13 +56,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(c => c.Usuario.CLAUSU)
-                                        @Html.PasswordFor(c => c.Usuario.CLAUSU, new { @Class = "form-control" })
+                                        @Html.PasswordFor(c => c.Usuario.CLAUSU, new { @Class = "form-control", @value = @Model.Usuario.CLAUSU })
+                                        @Html.ValidationMessageFor(c => c.Usuario.CLAUSU_REP)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(c => c.Usuario.CLAUSU_REP)
-                                        @Html.PasswordFor(c => c.Usuario.CLAUSU_REP, new { @Class = "form-control" })
+                                        @Html.PasswordFor(c => c.Usuario.CLAUSU_REP, new { @Class = "form-control", @value = @Model.Usuario.CLAUSU })
                                         @Html.ValidationMessageFor(c => c.Usuario.CLAUSU_REP)
                                     </div>
                                 </div>
@@ -85,7 +88,15 @@
 
     function GrabarPersonal()
     {
+
+            
+
         if (!formRegPersonalValido()) return;
+
+        if ($("#Usuario_CLAUSU").val() != $("#Usuario_CLAUSU_REP").val()) {
+            showNotify('@TitleResponse.alert', "Las contraseñas no coinciden", '@TypeResponse.alert.ToString()');
+            return;
+        }
         if (!confirm("¿Está seguro que desea actualizar al personal?")) return;
 
         $.ajax({

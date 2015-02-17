@@ -61,6 +61,7 @@ namespace UPC.TS.Web.Controllers
                 model.DNIPER = personal.DNIPER;
                 model.Usuario.CODUSU = usuario.CODUSU;
                 model.Usuario.LOGUSU = usuario.LOGUSU;
+                model.Usuario.CLAUSU = usuario.CLAUSU;
 
                 return PartialView("_EditarPersonal", model);
             }

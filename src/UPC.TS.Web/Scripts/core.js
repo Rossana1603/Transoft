@@ -53,7 +53,6 @@ function showNotifyByData(data) {
         text: data.Message,
         type: data.TypeResponse 
     });
-    setTimeout(function () { }, 5000);
 }
 
 function showNotify(title, message, typeMessage) {
@@ -63,7 +62,6 @@ function showNotify(title, message, typeMessage) {
         text: message,
         type: typeMessage
     });
-    setTimeout(function () { }, 5000);
 }
 
 /*Extensiones*/

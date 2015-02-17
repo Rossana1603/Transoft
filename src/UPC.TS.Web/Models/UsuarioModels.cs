@@ -14,7 +14,6 @@ namespace UPC.TS.Web.Models
         public string CLAUSU { get; set; }
         [Display(Name = "Repita contraseña")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Compare("CLAUSU", ErrorMessage = "Las contraseñas deben coincidir")]
         public string CLAUSU_REP { get; set; }
         public string ESTREG { get; set; }
         [Display(Name="Ingrese correo electronico")]

@@ -75,7 +75,7 @@ namespace UPC.TS.DataImplement.Infraestructura
 
         public virtual object Update(T entity)
         {
-            //SetValue(ref entity, "ESTREG", (int)Estados.Auditoria.Activo);
+            SetValue(ref entity, "ESTREG", (int)Estados.Auditoria.Activo);
             dbSet.Attach(entity);
             _unitOfWork.Db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             this._unitOfWork.Db.SaveChanges();

@@ -23,14 +23,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(c => c.NOMTIPTAR)
-                            @Html.TextBoxFor(c => c.NOMTIPTAR, new { @Class = "form-control", @maxlength = "28"})
+                            @Html.TextBoxFor(c => c.NOMTIPTAR, new { @Class = "form-control", @maxlength = "28" })
                             @Html.ValidationMessageFor(c => c.NOMTIPTAR)
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(c => c.ESTREG)
-                            @Html.DropDownListFor(c => c.ESTREG, Model.LIST_ESTREG, "Seleccione", new { @Class = "form-control" })
+                            @Html.DropDownListFor(c => c.ESTREG, Model.LIST_ESTREG, "Seleccione", new { @Class = "form-control", @readonly = "readonly", disabled = "disabled" })
                             @Html.ValidationMessageFor(c => c.ESTREG)
                         </div>
                     </div>
@@ -50,8 +50,7 @@
 
     });
 
-    function GrabarTipoTarjeta()
-    {
+    function GrabarTipoTarjeta() {
         if (!formRegTipoTarjetaValido()) return;
         if (!confirm("Esta seguro que desea registrar el Medio de Pago")) return;
 

@@ -14,19 +14,19 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         @Html.LabelFor(c => c.Personal.DNIPER)
-                        @Html.TextBoxFor(c => c.Personal.DNIPER, new { @class = "form-control" })
+                        @Html.TextBoxFor(c => c.Personal.DNIPER, new { @class = "form-control", @Maxlength = "8", @onkeypress = "return isNumber(event)" })
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         @Html.LabelFor(c => c.Personal.NOMPER)
-                        @Html.TextBoxFor(c => c.Personal.NOMPER, new { @class = "form-control" })
+                        @Html.TextBoxFor(c => c.Personal.NOMPER, new { @class = "form-control", @Maxlength = "30", @onkeydown = "return validarLetras(event)" })
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         @Html.LabelFor(c => c.Personal.APEPER)
-                        @Html.TextBoxFor(c => c.Personal.APEPER, new { @class = "form-control" })
+                        @Html.TextBoxFor(c => c.Personal.APEPER, new { @class = "form-control", @Maxlength = "30", @onkeydown = "return validarLetras(event)" })
                     </div>
                 </div>
             </div>

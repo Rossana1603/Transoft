@@ -20,6 +20,32 @@ $(document).ready(function () {
 
 });
 
+
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function validarLetras(e) { // 1
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8) return true; // backspace
+    if (tecla == 32) return true; // espacio
+    if (e.ctrlKey && tecla == 86) { return true; } //Ctrl v
+    if (e.ctrlKey && tecla == 67) { return true; } //Ctrl c
+    if (e.ctrlKey && tecla == 88) { return true; } //Ctrl x
+
+    patron = /[a-zA-Z]/; //patron
+
+    te = String.fromCharCode(tecla);
+    return patron.test(te); // prueba de patron
+}
+
+
 function errorAjax() {
     alert("Se producjo un error inesperado mantengase en contacto con el administrador del Sistema");
 }
